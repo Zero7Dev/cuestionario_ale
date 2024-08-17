@@ -79,7 +79,7 @@ export default function Home() {
               placeholder="Mi nombre xdd"
               value={formData.nombre}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           
@@ -93,7 +93,7 @@ export default function Home() {
               name="cumpleaños"
               value={formData.cumpleaños}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -108,7 +108,7 @@ export default function Home() {
               placeholder="Porque xd"
               value={formData.porqueNoUni}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -123,7 +123,7 @@ export default function Home() {
               placeholder="Lo que más me gusta, mi amor"
               value={formData.loQueMeGusta}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -138,7 +138,7 @@ export default function Home() {
               placeholder="Música favorita, mi amor"
               value={formData.musicaFavorita}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -153,7 +153,7 @@ export default function Home() {
               placeholder="Mi comida favorita"
               value={formData.comidaFavorita}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -168,7 +168,7 @@ export default function Home() {
               placeholder="Mi película favorita"
               value={formData.peliculaFavorita}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -183,7 +183,7 @@ export default function Home() {
               placeholder="Tus pasatiempos"
               value={formData.hobbies}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
