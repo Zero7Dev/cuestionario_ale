@@ -17,21 +17,33 @@ export default function Home() {
     love: 50,
   });
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       // Envía los datos a Firestore
       await addDoc(collection(db, 'respuestas_ale'), formData);
       console.log('Documento enviado correctamente');
-    } catch (e) {
-      console.error('Error al agregar el documento: ', e);
+      // Puedes limpiar el formulario aquí si deseas
+      setFormData({
+        nombre: '',
+        cumpleaños: '',
+        porqueNoUni: '',
+        loQueMeGusta: '',
+        musicaFavorita: '',
+        comidaFavorita: '',
+        peliculaFavorita: '',
+        hobbies: '',
+        love: 50,
+      });
+    } catch (error) {
+      console.error('Error al agregar el documento: ', error);
     }
   };
 
@@ -54,6 +66,8 @@ export default function Home() {
       <main className="bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mt-8">
         <h2 className="text-2xl font-bold text-center mb-6">NO SE VALE HACER TRAMPA</h2>
         <form onSubmit={handleSubmit}>
+          {/* Campos del formulario */}
+          
           <div className="mb-4">
             <label className="block text-white-700 text-sm font-bold mb-2" htmlFor="nombre">
               Cual es mi Nombre completo, mi amor?
@@ -82,7 +96,7 @@ export default function Home() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          
+
           <div className="mb-4">
             <label className="block text-white-700 text-sm font-bold mb-2" htmlFor="porqueNoUni">
               ¿Por qué no me gusta la universidad, mi amor?
@@ -185,7 +199,7 @@ export default function Home() {
               min="0"
               max="100"
               value={formData.love}
-              onChange={(e) => setFormData({ ...formData, love: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, love: parseInt(e.target.value, 10) })}
               className="w-full"
             />
             <p className="text-center text-white-700 mt-2">{formData.love}%</p>
