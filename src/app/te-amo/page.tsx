@@ -32,7 +32,7 @@ export default function LoveMessage() {
 
   return (
     <div className="flex flex-col items-center p-8 bg-gray-800 bg-opacity-90 rounded-lg shadow-lg">
-      <h2 className="text-3xl text-white mb-4">Déjame un mensaje bonito</h2>
+      <h2 className="text-3xl text-white mb-4">Déjame un mensaje bonito mi amor ❤️</h2>
       {submitted ? (
         <p className="text-white">¡Gracias por tu mensaje! ❤️</p>
       ) : (
@@ -41,7 +41,7 @@ export default function LoveMessage() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Escribe aquí tu mensaje..."
-            className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full text-black p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <button
@@ -50,6 +50,7 @@ export default function LoveMessage() {
           >
             Enviar Mensaje
           </button>
+          <p>Si ves esto aunq no creo, no le pares bola :c</p>
         </form>
       )}
     </div>
