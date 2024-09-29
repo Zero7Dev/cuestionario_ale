@@ -32,7 +32,7 @@ const HamburgerMenu = () => {
   <div className="absolute left-0 bg-gray-800 bg-opacity-90 p-2 rounded-lg shadow-lg max-w-md">
     <ul className="flex flex-col p-2">
       <li className="py-2 px-2 hover:bg-blue-600 transition duration-200 ease-in-out">
-        <a href="/" className="text-white">Formulario</a>
+        <a href="Formulario" className="text-white">Formulario</a>
       </li>
       <hr className="border-t border-gray-500" />
       <li className="py-2 px-2 hover:bg-blue-600 transition duration-200 ease-in-out">
