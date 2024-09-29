@@ -24,29 +24,63 @@ export default function Home() {
     });
   };
 
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   try {
+  //     // Envía los datos a Firestore
+  //     await addDoc(collection(db, 'respuestas_ale'), formData);
+  //     console.log('Documento enviado correctamente');
+  //     // Puedes limpiar el formulario aquí si deseas
+  //     setFormData({
+  //       nombre: '',
+  //       cumpleaños: '',
+  //       porqueNoUni: '',
+  //       loQueMeGusta: '',
+  //       musicaFavorita: '',
+  //       comidaFavorita: '',
+  //       peliculaFavorita: '',
+  //       hobbies: '',
+  //       love: 50,
+  //     });
+  //   } catch (error) {
+  //     console.error('Error al agregar el documento: ', error);
+  //   }
+  // };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Envía los datos a Firestore
-      await addDoc(collection(db, 'respuestas_ale'), formData);
-      console.log('Documento enviado correctamente');
-      // Puedes limpiar el formulario aquí si deseas
-      setFormData({
-        nombre: '',
-        cumpleaños: '',
-        porqueNoUni: '',
-        loQueMeGusta: '',
-        musicaFavorita: '',
-        comidaFavorita: '',
-        peliculaFavorita: '',
-        hobbies: '',
-        love: 50,
+      // Envía los datos a la API Route
+      const response = await fetch('/api/guardarDatos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+  
+      if (response.ok) {
+        console.log('Documento enviado correctamente');
+        // Limpiar el formulario si es necesario
+        setFormData({
+          nombre: '',
+          cumpleaños: '',
+          porqueNoUni: '',
+          loQueMeGusta: '',
+          musicaFavorita: '',
+          comidaFavorita: '',
+          peliculaFavorita: '',
+          hobbies: '',
+          love: 50,
+        });
+      } else {
+        console.error('Error al enviar los datos');
+      }
     } catch (error) {
-      console.error('Error al agregar el documento: ', error);
+      console.error('Error al enviar los datos:', error);
     }
   };
-
+  
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center bg-cover"
