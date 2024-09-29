@@ -14,14 +14,14 @@ export default function LoveMessage() {
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
+    setSubmitted(true);
+    setMessage('');
     if (isClient && db) { // Verifica que estamos en el cliente y db está inicializado
       try {
         await addDoc(collection(db, 'messages'), {
           text: message,
           createdAt: new Date(),
         });
-        setSubmitted(true);
-        setMessage('');
       } catch (error) {
         console.error("Error al guardar el mensaje: ", error);
       }
