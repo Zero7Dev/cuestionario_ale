@@ -1,9 +1,9 @@
 'use client'
 import Head from 'next/head';
 import { useState } from 'react';
-import { db } from './firebase'; // Asegúrate de importar db
+import { db } from '../firebase'; // Asegúrate de importar db
 import { collection, addDoc } from 'firebase/firestore';
-import ConfirmationModal from './components/ConfirmationModal';
+import ConfirmationModal from './ConfirmationModal';
 import Image from 'next/image';
 
 
