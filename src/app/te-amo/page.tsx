@@ -1,5 +1,6 @@
+'use client';
 import { useState, useEffect } from 'react';
-import { db } from './firebase'; // Ajusta la ruta según donde hayas guardado firebase.js
+import { db } from '../firebase'; // Ajusta la ruta según donde hayas guardado firebase.js
 import { collection, addDoc } from 'firebase/firestore';
 
 export default function LoveMessage() {
@@ -11,7 +12,7 @@ export default function LoveMessage() {
     setIsClient(true); // Indica que el componente se está renderizando en el cliente
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     if (isClient && db) { // Verifica que estamos en el cliente y db está inicializado
       try {
