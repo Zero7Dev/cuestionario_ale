@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { db } from './firebase'; // Asegúrate de importar db
 import { collection, addDoc } from 'firebase/firestore';
+import ConfirmationModal from './components/ConfirmationModal';
+import Image from 'next/image';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -16,6 +18,8 @@ export default function Home() {
     hobbies: '',
     love: 50,
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para abrir/cerrar el modal
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -95,7 +99,17 @@ export default function Home() {
       <nav className="w-full p-4 bg-gray-900 bg-opacity-75 text-white text-center">
         <h1 className="text-2xl font-bold">Formulario para el amor de mi vida</h1>
       </nav>
-
+      <div className="flex justify-center mt-8">
+      <div className="border-4 border-blue-500 rounded-lg shadow-lg overflow-hidden">
+        <Image
+          src="/images/imagen2.png" // Ruta de la imagen
+          alt="Descripción de la imagen"
+          width={500} // Ancho deseado
+          height={300} // Altura deseada
+          priority // Cargar la imagen con prioridad
+        />
+      </div>
+    </div>
       {/* Formulario */}
       <main className="bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mt-8">
         <h2 className="text-2xl font-bold text-center mb-6">NO SE VALE HACER TRAMPA</h2>
@@ -249,6 +263,8 @@ export default function Home() {
           </div>
         </form>
       </main>
+      <ConfirmationModal isOpen={false} onClose={() => setIsModalOpen(false)} />
+
     </div>
   );
 }
