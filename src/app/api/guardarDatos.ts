@@ -1,21 +1,27 @@
-// pages/api/guardarDatos.ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import { db } from '../firebase'; // Asegúrate de que tu archivo de Firebase esté correctamente configurado
+// guardarDatos.ts
+import { NextApiRequest, NextApiResponse } from "next";
+import { db } from "../firebase"; // Ajusta la ruta según donde hayas guardado firebase.js
 import { collection, addDoc } from 'firebase/firestore';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function guardarDatos(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    try {
-      const data = req.body; // Los datos que se envían desde el frontend
-      // Guardar en Firestore
-      await addDoc(collection(db, 'respuestas_ale'), data);
+    const { message } = req.body;
 
-      res.status(200).json({ message: 'Datos guardados exitosamente' });
-    } catch (error) {
-      console.error('Error al guardar los datos:', error);
-      res.status(500).json({ error: 'Error al guardar los datos' });
+    if (!db) {
+      return res.status(500).json({ error: "Firestore no está disponible." });
     }
-  } else {
-    res.status(405).json({ message: 'Método no permitido' });
+
+    try {
+      await addDoc(collection(db, 'messages'), {
+        text: message,
+        createdAt: new Date(),
+      });
+      return res.status(200).json({ message: "Mensaje guardado con éxito." });
+    } catch (error) {
+      console.error("Error al guardar el mensaje: ", error);
+      return res.status(500).json({ error: "Error al guardar el mensaje." });
+    }
   }
+
+  return res.status(405).json({ error: "Método no permitido." });
 }
